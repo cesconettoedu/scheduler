@@ -21,3 +21,7 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## some notes to configure, not to forget
+in file .env.development insert the line  SKIP_PREFLIGHT_CHECK=true
+create a file .env and insert the line SKIP_PREFLIGHT_CHECK=true
