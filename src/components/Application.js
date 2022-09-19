@@ -28,6 +28,8 @@ export default function Application(props) {
       interview: { ...interview }
     };
 
+    console.log(id, interview);
+    
     const appointments = {
       ...state.appointments,
       [id]: appointment

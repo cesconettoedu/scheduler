@@ -23,10 +23,10 @@ export default function Appointment (props) {
   function save(name, interviewer) {
     const interview = {
       student: name,
-      interviewer
+      interviewer      
     };
-    bookInterview(id, interview)    
-    
+    bookInterview(id, interview)
+    transition(SHOW)
   }
 
  
@@ -39,7 +39,7 @@ export default function Appointment (props) {
             {mode === EMPTY && 
             <Empty onAdd={() => transition(CREATE)} />}
             
-            {mode === SHOW && (
+            {mode === SHOW && interview &&(
             <Show
                 student={interview.student}
                 interviewer={interview.interviewer}
