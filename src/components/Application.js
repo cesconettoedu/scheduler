@@ -27,18 +27,15 @@ export default function Application(props) {
       ...state.appointments[id],
       interview: { ...interview }
     };
-
-    console.log(id, interview);
-    
+  
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
 
-    setState({
-      ...state,
-      appointments
-    });
+    return axios.put(`/api/appointments/${id}`, {interview: interview})
+      .then(res => {setState({...state, appointments})})
+ 
   }
 
   const schedule = dailyAppointments.map((appointment) => {
