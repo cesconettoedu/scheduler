@@ -25,21 +25,6 @@ export default function useVisualMode(initial) {
     }
   }
 
-  // function back() {
-  //   setHistory(prevHistory => {
-
-  //         //limit to back function 
-  //     if(prevHistory.length === 1){
-  //        setMode(initial)
-  //     } else {
-  //       prevHistory.pop()  // remove the last item
-  //       setMode(prevHistory[prevHistory.length -1]) //get the last item after remove in the line before
-  //       return prevHistory
-  //     }
-  //   })
-
-  // }
-
   return { mode, transition, back };
 }
 
