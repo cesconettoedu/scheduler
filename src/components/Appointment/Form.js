@@ -36,6 +36,8 @@ export default function Form (props) {
               setStudent(event.target.value);
             }}
 
+            data-testid="student-name-input"
+          
           />
         </form>
         <InterviewerList 
