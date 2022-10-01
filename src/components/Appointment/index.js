@@ -33,7 +33,7 @@ export default function Appointment (props) {
   function save(name, interviewer) {
     const interview = {
       student: name,
-      interviewer      
+      interviewer,      
     };
 
     transition(SAVING)
@@ -60,7 +60,8 @@ export default function Appointment (props) {
 //////////////////////////////////////////////////////////////////////////////////
 
    return (
-      <article className="appointment">
+      <article className="appointment"  data-testid="appointment">
+        
           <Header time={time} />
 
           <Fragment>
@@ -74,6 +75,8 @@ export default function Appointment (props) {
                   interviewer={interview.interviewer}
                   onDelete={() => transition(CONFIRM)}  //clic Trash icon, goes to CONFIRM, then use onClick to del
                   onEdit={edit}
+                  
+                  
               />)}
             
             {mode === CREATE && 
@@ -118,7 +121,7 @@ export default function Appointment (props) {
 
            
           </Fragment>
-
+          
       </article>
   );
 }
