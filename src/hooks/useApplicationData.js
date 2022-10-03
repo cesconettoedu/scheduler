@@ -43,6 +43,16 @@ export default function useApplicationData() {
     return weekDays[day]
   }
 
+  const updatedDays = (appointments) => {
+    const currentDay = state.days.find(day => day.name === state.day)
+    const currentDayIndex = state.days.findIndex(day => day.name === state.day)
+
+    const spots =  currentDay.appointments.filter(appointmentId => !appointments[appointmentId].interview).length
+    const updatedDay = {...currentDay, spots}
+    const updatedDays = [...state.days]
+    updatedDays[currentDayIndex] = updatedDay
+    return updatedDays
+  }
 
 
 
@@ -61,27 +71,27 @@ export default function useApplicationData() {
 
 
                                   // state.day pass the day name 'monday' to the function
-    const weekDay = availableDays(state.day)
+    // const weekDay = availableDays(state.day)
 
-    let day = {
-     ...state.days[weekDay],
-     spots: state.days[weekDay]
-    }
+    // let day = {
+    //  ...state.days[weekDay],
+    //  spots: state.days[weekDay]
+    // }
 
-    if (!state.appointments[id].interview) {
-      day = {
-       ...state.days[weekDay],
-       spots: state.days[weekDay].spots - 1
-      } 
-    } else {
-      day = {
-       ...state.days[weekDay],
-       spots: state.days[weekDay].spots
-      } 
-    }
+    // if (!state.appointments[id].interview) {
+    //   day = {
+    //    ...state.days[weekDay],
+    //    spots: state.days[weekDay].spots - 1
+    //   } 
+    // } else {
+    //   day = {
+    //    ...state.days[weekDay],
+    //    spots: state.days[weekDay].spots
+    //   } 
+    // }
 
-    let days = state.days
-    days[weekDay] = day;
+    // let days = state.days
+    // days[weekDay] = day;
 
 
 
@@ -89,7 +99,7 @@ export default function useApplicationData() {
 
 
     return axios.put(`/api/appointments/${id}`, {interview: interview})
-      .then(res => {setState({...state, appointments})})  
+      .then(res => {setState({...state, appointments, days: updatedDays(appointments)})})  
   }
 
 //cancel deleting a interview ///////////////////////////////////////////////////
@@ -106,21 +116,21 @@ export default function useApplicationData() {
 
 
 
-    const weekDay = availableDays(state.day)
+    // const weekDay = availableDays(state.day)
 
-    const day = {
-      ...state.days[weekDay],
-      spots: state.days[weekDay].spots + 1
-    }
+    // const day = {
+    //   ...state.days[weekDay],
+    //   spots: state.days[weekDay].spots + 1
+    // }
 
-    let days = state.days
-    days[weekDay] = day;
+    // let days = state.days
+    // days[weekDay] = day;
 
     
 
 
     return axios.delete(`/api/appointments/${id}`)
-      .then(res => {setState({...state, appointments})
+      .then(res => {setState({...state, appointments, days: updatedDays(appointments)})
       
     })
   }
