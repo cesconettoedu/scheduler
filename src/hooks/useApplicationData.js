@@ -32,16 +32,16 @@ export default function useApplicationData() {
 
   
                     //catch the day name and return the value (id)
-  function availableDays(day) {
-    const weekDays = {
-      Monday: 0,
-      Tuesday: 1,
-      Wednesday: 2,
-      Thursday: 3,
-      Friday: 4
-    }
-    return weekDays[day]
-  }
+  // function availableDays(day) {
+  //   const weekDays = {
+  //     Monday: 0,
+  //     Tuesday: 1,
+  //     Wednesday: 2,
+  //     Thursday: 3,
+  //     Friday: 4
+  //   }
+  //   return weekDays[day]
+  // }
 
   const updatedDays = (appointments) => {
     const currentDay = state.days.find(day => day.name === state.day)
