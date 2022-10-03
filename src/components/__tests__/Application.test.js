@@ -134,6 +134,11 @@ describe("Application", () => {
 
     // We don't want the spots to change for "Monday", since this is an edit.
 
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+  
     // Read the errors because sometimes they say that await cannot be outside of an async function.
 
 
