@@ -21,10 +21,19 @@
 - [Storybook](https://storybook.js.org/)
 
 # Screenshots
+<<<<<<< HEAD
 
 - Add interview
 
 -
+=======
+-![Add interview](https://user-images.githubusercontent.com/99515575/194332352-bd9785f1-c439-4483-9032-020ea919519a.gif)
+
+-![Edit interview](https://user-images.githubusercontent.com/99515575/194332371-948f2f7c-572d-49df-a600-b54914f7021f.gif)
+
+-![Deleting interview](https://user-images.githubusercontent.com/99515575/194332390-f4801429-d857-43b2-be30-35d4e206f797.gif)
+
+>>>>>>> e86c7f16dc29068c1a2240caf6ee76bdb087c6a6
 -
 -
 -
